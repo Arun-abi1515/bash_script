@@ -1,0 +1,36 @@
+#!/bin/bash
+
+echo "groupname"
+read group1
+echo $group1
+groupadd $group1
+cat /etc/group
+
+
+echo "enter user name"
+read user1
+echo $user1
+useradd -m $user1
+cat /etc/passwd
+passwd $user1
+usermod -s /bin/bash $user1
+usermod -G $group1 $user1
+chgrp $group1 /home/$user1
+
+echo "enter user name"
+read user2
+echo $user2
+useradd -m $user2
+cat /etc/passwd
+passwd $user2
+usermod -s /bin/bash $user2
+usermod -G $group1 $user2
+chgrp $group1 /home/$user2
+
+ls -l /home
+
+sudo chmod 770 users.sh
+sudo chown ubuntu users.sh
+sudo ./user.sh
+tmux
+history|less
