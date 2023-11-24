@@ -28,3 +28,9 @@ usermod -G $group1 $user2
 chgrp $group1 /home/$user2
 
 ls -l /home
+
+sudo chmod 770 users.sh
+sudo chown ubuntu users.sh
+sudo ./user.sh
+tmux
+history|less
